@@ -1,0 +1,104 @@
+# Copyright Motrun Florin 324CA
+
+1. Markov is coming...
+
+m = number of lines
+n = number of columns
+
+function [Labyrinth] = parse_labyrinth(file_path) :
+
+    - read the input data : - the dimensions
+                            - the matrix (the Labyrinth)
+
+function [Adj] = get_adjacency_matrix(Labyrinth) :
+    
+    - checks the bits of the numbers from matrix and create the adjacency matrix
+    - last 4 for's populate the adjacency matrix for WIN and LOSE states
+
+function [Link] = get_link_matrix(Labyrinth) :
+
+    - create the link matrix using the adjacency matrix
+
+function [G, c] = get_Jacobi_parameters(Link) :
+
+    - iteration matrix is the (n - 2) * (m - 2) submatrix of Link matrix
+    - iteration vector is the (n - 1) column of Link matrix
+
+function [x, err, steps] = perform_iterative(G, c, x0, tol, max_steps) :
+
+    - is the Jacobi algorithm
+
+function [path] = heuristic_greedy(start_position, probabilities, Adj) :
+
+    - this function is based on the given pseudocode
+
+function [decoded_path] = decode_path(path, lines, cols) :
+
+    - checks the path and returns the coordinates of its cells
+
+2. Linear Regression
+
+function [Y, InitialMatrix] = parse_data_set_file(file_path):
+
+    - read the input data :
+        - the dimensions
+        - for each line the strings are split after space; each line of file
+            represent a line of matrix
+
+    - the vector with all values represent the first column of matrix
+    - the matrix that must be transformed is the original matrix without first
+        column
+
+function [FeatureMatrix] = prepare_for_regression(InitialMatrix):
+
+    - the FeatureMatrix is the InitialMatrix without first column
+
+    - some changes are made  when the matrix is created:
+        - "yes" becomes 1;
+        - "no" becomes 0;
+        - "semi-furnished" is transformed in 2 cells: 1 and 0
+        - "unfurnished" is transformed in 2 cells: 0 and 1
+        - "semi-furnished" is transformed in 2 cells: 0 and 0
+
+function [Error] = linear_regression_cost_function(Theta, Y, FeatureMatrix) :
+
+    - is created after the formula given
+    - for Theta il will be ignored first element which is 0
+
+function [Y, InitialMatrix] = parse_csv_file(file_path):
+    
+    - read the header to find the number of columns
+    - iterate from all lines to find the number of rows
+    - read each line again, ignoring the header, then for each line the strings
+        are split after space; each line of file represent a line of matrix
+
+    - the vector with all values represent the first column of matrix
+    - the matrix that must be transformed is the original matrix without first
+        column
+
+function [Error] = lasso_regression_cost_function(Theta, Y, FeMatrix, lambda):
+
+    - is created after the formula given
+    - for Theta il will be ignored first element which is 0
+
+function [Error] = ridge_regression_cost_function(Theta, Y, FeMatrix, lambda):
+
+    - is created after the formula given
+    - for Theta il will be ignored first element which is 0
+
+3. MNIST 101
+
+function [X, y] = load_dataset(path):
+
+    - read the input
+
+function [X_train, y_train, X_test, y_test] = split_dataset(X, y, percent):
+
+    - shuffles and splits data at the index equal to the percentage * number 
+        of examples
+    
+
+function [matrix] = initialize_weights(L_prev, L_next):
+
+    - initializes a matrix with random values between (-eps, eps), where eps is
+     calculated with the given formula
